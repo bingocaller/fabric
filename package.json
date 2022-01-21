@@ -9,6 +9,13 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^0.22.11"
+    "@astrojs/renderer-react": "^0.4.1",
+    "@babel/core": "^7.16.7",
+    "astro": "^0.22.11",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "sass": "^1.48.0",
+    "stylelint": "^14.2.0",
+    "stylelint-config-standard": "^24.0.0"
   }
 }

@@ -1,0 +1,36 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+import HeaderNavigation from '../components/HeaderNavigation.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Content from '../components/Content.astro';
+import Footer from '../components/Footer.astro';
+
+const {navBlocks, title} = Astro.props;
+---
+<BaseLayout title={title}>
+	<div class="layout-sidebar">
+		<HeaderNavigation />
+		<Sidebar navBlocks={navBlocks}>
+			<slot name="sidebar" />
+		</Sidebar>
+		<Content>
+			<slot />
+		</Content>
+		<Footer />
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	.layout-sidebar {
+		display: grid;
+		grid-template-areas:
+		'header header'
+		'sidebar content'
+		'footer footer';
+		grid-template-columns: clamp(10em, 25vw, 80ch) auto;
+		grid-template-rows: auto minmax(0, 1fr) auto;
+
+		min-block-size: 100vh;
+	}
+</style>

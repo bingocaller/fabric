@@ -1,0 +1,106 @@
+---
+import { removeLeadingSlash, removeTrailingSlash } from '../util.ts';
+
+const mainNavLinks = [
+	{ slug: 'foundations', label: 'Foundations' },
+	{ slug: 'content', label: 'Content' },
+	{ slug: 'design', label: 'Design' },
+	{ slug: 'components', label: 'Components' },
+	{ slug: 'experiences', label: 'Experiences' },
+]
+
+const currentPageMatch =
+	removeLeadingSlash(
+		removeTrailingSlash(Astro.request.url.pathname)
+	);
+---
+<header>
+	<h1>Fabric</h1>
+	<nav aria-label="Primary navigation">
+		<ul>
+			{mainNavLinks.map(link => (
+				<li>
+					<a
+						href={link.slug}
+						aria-current={`${
+							currentPageMatch === link.slug ? 'page' : 'false'
+						}`}
+					>
+						{link.label}
+					</a>
+				</li>
+			))}
+		</ul>
+	</nav>
+</header>
+
+<style lang="scss">
+	header {
+		grid-area: header;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 1rem;
+
+		padding-inline: 1rem;
+	}
+
+	h1 {
+		flex-grow: 1;
+		font-stretch: 150%;
+	}
+
+	nav * {
+		block-size: 100%;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		padding: 0;
+		margin: 0;
+
+		list-style-type: none;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+
+		padding: 1rem;
+
+		text-decoration: none;
+	}
+
+	a:hover,
+	a:focus,
+	[aria-current=page] {
+		position: relative;
+
+		outline: none;
+
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0 1rem auto;
+
+			block-size: .5rem;
+			
+			background-color: currentColor;
+		}
+	}
+	a:hover,
+	a:focus {
+		text-decoration: underline;
+	}
+	a:hover:not([aria-current=page])::before,
+	a:focus:not([aria-current=page])::before {
+		opacity: .5;
+	}
+	[aria-current=page]::before {
+		opacity: 1;
+	}
+</style>

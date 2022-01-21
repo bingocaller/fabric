@@ -1,0 +1,29 @@
+<main>
+    <slot />
+</main>
+
+<style lang="scss">
+	@use '../styles/variables';
+
+	main {
+		grid-area: content;
+
+		padding: 1rem;
+		margin: 1rem;
+
+		border-radius: .5rem;
+		background-color: variables.$color-background-primary;
+		box-shadow:
+			0 0.0375rem 0.0375rem rgba(0, 0, 0, 0.02),
+			0 0.08125rem 0.08125rem rgba(0, 0, 0, 0.028),
+			0 0.15625rem 0.15625rem rgba(0, 0, 0, 0.035),
+			0 0.28125rem 0.28125rem rgba(0, 0, 0, 0.042),
+			0 0.525rem 0.525rem rgba(0, 0, 0, 0.05),
+			0 1.25rem 1.25rem rgba(0, 0, 0, 0.07)
+		;
+
+		@media (prefers-color-scheme: dark) {
+			background-color: variables.$color-background-primary-dark;
+		}
+	}
+</style>

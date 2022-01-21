@@ -1,0 +1,54 @@
+---
+const {heading, leadIn} = Astro.props;
+---
+
+<div class="hero">
+	<img src="assets/fabric.jpg" alt="Fabric with folds that cast flowing shadows">
+	<h1>{heading}</h1>
+	<p class="lead-in">{leadIn}</p>
+</div>
+
+<style lang="scss">
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(2rem, 10vw, 8rem) clamp(1rem, 6vw, 10rem);
+        margin: -1rem -1rem 3rem;
+        border-start-start-radius: .5rem;
+        border-start-end-radius: .5rem;
+    }
+	img {
+        position: absolute;
+        inset: 0;
+
+        block-size: 100%;
+        inline-size: 100%;
+        object-fit: cover;
+
+        mix-blend-mode: luminosity;
+        opacity: 0.25;
+        @media (prefers-color-scheme: dark) {
+            opacity: 0.75;
+        }
+	}
+    h1,
+    .lead-in {
+        position: relative;
+    }
+    h1 {
+        display: inline-block;
+        padding-block-end: 1.75rem;
+        border-block-end: .125rem solid;
+        margin-block: 0;
+
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: .125em;
+        word-break: break-word;
+    }
+	.lead-in {
+        max-inline-size: 30ch;
+		font-size: 1.5rem;
+        margin-block: 1.75rem 0;
+	}
+</style>

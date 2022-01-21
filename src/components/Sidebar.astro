@@ -1,0 +1,72 @@
+---
+const { navBlocks } = Astro.props;
+---
+<aside>
+	{ navBlocks && (
+		<nav aria-label="Secondary navigation">
+			<ul>
+				{navBlocks.map(navBlock => {
+					if ('heading' in navBlock) {
+						return (
+							<li>
+								<h4 aria-label={navBlock.heading}>{navBlock.heading}</h4>
+							</li>
+							<ul>
+								{navBlock.links.map(link => (
+									<li>
+										<a href={link.href}>{link.label}</a>
+									</li>
+								))}
+							</ul>
+						);
+					}
+					return (
+						<ul>
+							{navBlock.links.map(link => (
+								<li>
+									<a href={link.href}>{link.label}</a>
+								</li>
+							))}
+						</ul>
+					);
+				})}
+			</ul>
+		</nav>
+	)}
+	<slot />
+</aside>
+
+<style lang="scss">
+	aside {
+		grid-area: sidebar;
+	}
+
+	h4 {
+		margin: 0;
+
+		text-transform: uppercase;
+		letter-spacing: .0625em;
+		font-weight: 600;
+	}
+
+	ul {
+		display: flex;
+		min-block-size: 100%;
+		flex-flow: column nowrap;
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+	}
+
+	ul + li {
+		margin-block-start: 2rem;
+	}
+
+	li {
+		display: flex;
+		flex: 1;
+		align-items: center;
+
+		padding: 1rem;
+	}
+</style>

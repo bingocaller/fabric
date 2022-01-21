@@ -1,0 +1,39 @@
+[
+	{
+		"heading": "First topic",
+		"links": [{
+			"href": "/foundations/topic-one-first",
+			"label": "First link"
+		}]
+	},
+	{
+		"heading": "Second topic",
+		"links": [
+			{
+				"href": "/foundations/topic-two-first",
+				"label": "First link"
+			},
+			{
+				"href": "/foundations/topic-two-second",
+				"label": "Second link"
+			},
+			{
+				"href": "/foundations/topic-two-third",
+				"label": "Third link"
+			}
+		]
+	},
+	{
+		"heading": "Third topic",
+		"links": [
+			{
+				"href": "/foundations/topic-three-first",
+				"label": "First link"
+			},
+			{
+				"href": "/foundations/topic-three-second",
+				"label": "Second link"
+			}
+		]
+	}
+]
