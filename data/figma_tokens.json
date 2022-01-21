@@ -1,0 +1,86 @@
+{
+  "global": {
+    "size": {
+      "spacing": {
+        "3XS": {
+          "value": "{size.spacing.2XS} / 2",
+          "description": "",
+          "type": "spacing"
+        },
+        "2XS": {
+          "value": "4",
+          "type": "spacing"
+        },
+        "XS": {
+          "value": "{size.spacing.2XS} * 2",
+          "type": "spacing"
+        },
+        "SM": {
+          "value": "{size.spacing.2XS} * 3",
+          "type": "spacing"
+        },
+        "MD": {
+          "value": "{size.spacing.2XS} * 4",
+          "type": "spacing"
+        },
+        "LG": {
+          "value": "{size.spacing.2XS} * 5",
+          "type": "spacing"
+        },
+        "XL": {
+          "value": "{size.spacing.2XS} * 6",
+          "type": "spacing"
+        },
+        "2XL": {
+          "value": "{size.spacing.2XS} * 7",
+          "type": "spacing"
+        },
+        "3XL": {
+          "value": "{size.spacing.2XS} * 8",
+          "type": "spacing"
+        }
+      },
+      "border": {
+        "radius": {
+          "small": {
+            "value": "4",
+            "type": "borderRadius"
+          },
+          "medium": {
+            "value": "8",
+            "type": "borderRadius"
+          },
+          "large": {
+            "value": "16",
+            "type": "borderRadius"
+          }
+        },
+        "width": {
+          "hairline": {
+            "value": "1",
+            "type": "borderWidth"
+          },
+          "thin": {
+            "value": "2",
+            "type": "borderWidth"
+          },
+          "thick": {
+            "value": "4",
+            "type": "borderWidth"
+          }
+        }
+      }
+    },
+    "color": {
+      "background": {
+        "overlay": {
+          "default": {
+            "value": "rgba(0,0,0, 0.3)",
+            "description": "Background colour for overlays like the backdrop for modal dialogs.",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}
