@@ -2,41 +2,41 @@
   "global": {
     "size": {
       "spacing": {
-        "3XS": {
-          "value": "{size.spacing.2XS} / 2",
+        "3xs": {
+          "value": "{size.spacing.2xs} / 2",
           "description": "",
           "type": "spacing"
         },
-        "2XS": {
+        "2xs": {
           "value": "4",
           "type": "spacing"
         },
-        "XS": {
-          "value": "{size.spacing.2XS} * 2",
+        "xs": {
+          "value": "{size.spacing.2xs} * 2",
           "type": "spacing"
         },
-        "SM": {
-          "value": "{size.spacing.2XS} * 3",
+        "sm": {
+          "value": "{size.spacing.2xs} * 3",
           "type": "spacing"
         },
-        "MD": {
-          "value": "{size.spacing.2XS} * 4",
+        "md": {
+          "value": "{size.spacing.2xs} * 4",
           "type": "spacing"
         },
-        "LG": {
-          "value": "{size.spacing.2XS} * 5",
+        "lg": {
+          "value": "{size.spacing.2xs} * 5",
           "type": "spacing"
         },
-        "XL": {
-          "value": "{size.spacing.2XS} * 6",
+        "xl": {
+          "value": "{size.spacing.2xs} * 6",
           "type": "spacing"
         },
-        "2XL": {
-          "value": "{size.spacing.2XS} * 7",
+        "2xl": {
+          "value": "{size.spacing.2xs} * 7",
           "type": "spacing"
         },
-        "3XL": {
-          "value": "{size.spacing.2XS} * 8",
+        "3xl": {
+          "value": "{size.spacing.2xs} * 8",
           "type": "spacing"
         }
       },
