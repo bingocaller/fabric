@@ -3,10 +3,11 @@
 </button>
 
 <style lang="scss">
-  /* ✅ Locally scoped! */
+  @use '../styles/tokens';
+
   .button {
-    padding: 0.5em 1em;
-    border-radius: 0.1875rem;
+    padding: tokens.$size-spacing-xs tokens.$size-spacing-md;
+    border-radius: tokens.$size-border-radius-small;
     font-weight: 600;
   }
 </style>

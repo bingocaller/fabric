@@ -1,5 +1,9 @@
 ---
+import { removeTrailingSlash } from '../util.ts';
+
 const { navBlocks } = Astro.props;
+
+const currentPageMatch = removeTrailingSlash(Astro.request.url.pathname);
 ---
 <aside>
 	{ navBlocks && (
@@ -14,7 +18,14 @@ const { navBlocks } = Astro.props;
 							<ul>
 								{navBlock.links.map(link => (
 									<li>
-										<a href={link.href}>{link.label}</a>
+										<a
+											href={link.path}
+											aria-current={`${
+												currentPageMatch === link.path ? 'page' : 'false'
+											}`}
+										>
+											{link.label}
+										</a>
 									</li>
 								))}
 							</ul>
@@ -24,7 +35,30 @@ const { navBlocks } = Astro.props;
 						<ul>
 							{navBlock.links.map(link => (
 								<li>
-									<a href={link.href}>{link.label}</a>
+									<a
+										href={link.path}
+										aria-current={`${
+											currentPageMatch === link.path ? 'page' : 'false'
+										}`}
+									>
+										{link.label}
+									</a>
+									{'links' in link && (
+										<ul>
+											{link.links.map(subLink => (
+												<li>
+													<a
+														href={subLink.path}
+														aria-current={`${
+															currentPageMatch === subLink.path ? 'page' : 'false'
+														}`}
+													>
+														{subLink.label}
+													</a>
+												</li>
+											))}
+										</ul>
+									)}
 								</li>
 							))}
 						</ul>
@@ -37,8 +71,16 @@ const { navBlocks } = Astro.props;
 </aside>
 
 <style lang="scss">
+	@use '../styles/tokens';
+	@use '../styles/variables';
+
 	aside {
 		grid-area: sidebar;
+	}
+
+	nav {
+		position: sticky;
+		inset-block-start: 0;
 	}
 
 	h4 {
@@ -59,14 +101,33 @@ const { navBlocks } = Astro.props;
 	}
 
 	ul + li {
-		margin-block-start: 2rem;
+		margin-block-start: tokens.$size-spacing-3xl;
 	}
 
 	li {
 		display: flex;
+		flex-direction: column;
 		flex: 1;
-		align-items: center;
 
-		padding: 1rem;
+		margin-block-start: tokens.$size-spacing-md;
+		padding-inline-start: tokens.$size-spacing-md;
 	}
+
+	a {
+		padding: tokens.$size-spacing-xs;
+		border-radius: tokens.$size-border-radius-medium;
+		text-decoration: none;
+		&[aria-current=page] {
+			color: variables.$color-background-secondary;
+			background-color: variables.$color-background-primary-dark;
+			@media (prefers-color-scheme: dark) {
+				color: variables.$color-foreground;
+				background-color: variables.$color-background-secondary;
+			}
+		}
+	}
+
+	/* li > ul > li:first-child {
+		margin-block-start: tokens.$size-spacing-md;
+	} */
 </style>

@@ -3,15 +3,16 @@
 </main>
 
 <style lang="scss">
+	@use '../styles/tokens';
 	@use '../styles/variables';
 
 	main {
 		grid-area: content;
 
-		padding: 1rem;
-		margin: 1rem;
+		padding: tokens.$size-spacing-md;
+		margin: tokens.$size-spacing-md;
 
-		border-radius: .5rem;
+		border-radius: tokens.$size-border-radius-medium;
 		background-color: variables.$color-background-primary;
 		box-shadow:
 			0 0.0375rem 0.0375rem rgba(0, 0, 0, 0.02),

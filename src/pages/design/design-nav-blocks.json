@@ -1,0 +1,18 @@
+[
+	{
+		"links": [{
+			"path": "/design/design-tokens",
+			"label": "Design Tokens",
+			"links": [
+				{
+					"path": "/design/design-tokens#spacing",
+					"label": "Spacing"
+				},
+				{
+					"path": "/design/design-tokens#border",
+					"label": "Border"
+				}
+			]
+		}]
+	}
+]

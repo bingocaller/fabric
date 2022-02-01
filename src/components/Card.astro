@@ -1,0 +1,21 @@
+<div class="card">
+    <slot />
+</div>
+
+<style lang="scss">
+    @use '../styles/tokens';
+    @use '../styles/variables';
+
+    .card {
+        padding: tokens.$size-spacing-lg;
+
+        color: variables.$color-background-primary;
+        background-color: variables.$color-background-primary-dark;
+
+        border-radius: tokens.$size-border-radius-medium;
+        @media (prefers-color-scheme: dark) {
+            color: variables.$color-foreground;
+            background-color: variables.$color-background-secondary;
+        }
+    }
+</style>

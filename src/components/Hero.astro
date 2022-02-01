@@ -9,14 +9,20 @@ const {heading, leadIn} = Astro.props;
 </div>
 
 <style lang="scss">
+    @use '../styles/tokens';
+
     .hero {
         position: relative;
+
         overflow: hidden;
-        padding: clamp(2rem, 10vw, 8rem) clamp(1rem, 6vw, 10rem);
-        margin: -1rem -1rem 3rem;
-        border-start-start-radius: .5rem;
-        border-start-end-radius: .5rem;
+
+        padding: clamp(tokens.$size-spacing-3xl, 10vw, 8rem) clamp(tokens.$size-spacing-md, 6vw, 10rem);
+        margin: -#{tokens.$size-spacing-md} -#{tokens.$size-spacing-md} tokens.$size-spacing-md;
+
+        border-start-start-radius: inherit;
+        border-start-end-radius: inherit;
     }
+
 	img {
         position: absolute;
         inset: 0;
@@ -31,14 +37,16 @@ const {heading, leadIn} = Astro.props;
             opacity: 0.75;
         }
 	}
+
     h1,
     .lead-in {
         position: relative;
     }
+
     h1 {
         display: inline-block;
-        padding-block-end: 1.75rem;
-        border-block-end: .125rem solid;
+        padding-block-end: tokens.$size-spacing-2xl;
+        border-block-end: tokens.$size-border-width-thin solid;
         margin-block: 0;
 
         font-size: 3rem;
@@ -46,9 +54,10 @@ const {heading, leadIn} = Astro.props;
         letter-spacing: .125em;
         word-break: break-word;
     }
+
 	.lead-in {
         max-inline-size: 30ch;
 		font-size: 1.5rem;
-        margin-block: 1.75rem 0;
+        margin-block: tokens.$size-spacing-2xl 0;
 	}
 </style>

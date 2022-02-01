@@ -1,0 +1,84 @@
+{
+  "size": {
+    "spacing": {
+      "3xs": {
+        "value": 2,
+        "description": "",
+        "type": "spacing"
+      },
+      "2xs": {
+        "value": 4,
+        "type": "spacing"
+      },
+      "xs": {
+        "value": 8,
+        "type": "spacing"
+      },
+      "sm": {
+        "value": 12,
+        "type": "spacing"
+      },
+      "md": {
+        "value": 16,
+        "type": "spacing"
+      },
+      "lg": {
+        "value": 20,
+        "type": "spacing"
+      },
+      "xl": {
+        "value": 24,
+        "type": "spacing"
+      },
+      "2xl": {
+        "value": 28,
+        "type": "spacing"
+      },
+      "3xl": {
+        "value": 32,
+        "type": "spacing"
+      }
+    },
+    "border": {
+      "radius": {
+        "small": {
+          "value": 4,
+          "type": "borderRadius"
+        },
+        "medium": {
+          "value": 8,
+          "type": "borderRadius"
+        },
+        "large": {
+          "value": 16,
+          "type": "borderRadius"
+        }
+      },
+      "width": {
+        "hairline": {
+          "value": 1,
+          "type": "borderWidth"
+        },
+        "thin": {
+          "value": 2,
+          "type": "borderWidth"
+        },
+        "thick": {
+          "value": 4,
+          "type": "borderWidth"
+        }
+      }
+    }
+  },
+  "color": {
+    "background": {
+      "overlay": {
+        "default": {
+          "value": "#0000004d",
+          "description": "Background colour for overlays like the backdrop for modal dialogs.",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

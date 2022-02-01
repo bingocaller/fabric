@@ -1,0 +1,43 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CardLayout from '../../layouts/CardLayout.astro';
+
+import designNavBlocks from './design-nav-blocks.json';
+
+import designTokens from '../../../data/tokens/base.json'
+
+import Card from '../../components/Card.astro';
+
+const title = 'Design Tokens - Fabric Design System';
+---
+
+<SidebarLayout navBlocks={designNavBlocks} title={title}>
+	<h1>Design Tokens</h1>
+
+	{Object.entries(designTokens).map(([category, types]) => {
+		return <>
+			<h2 id={category}>{category[0].toUpperCase() + category.slice(1)}</h2>
+			{Object.entries(types).map(([type, items]) => {
+				return <>
+					<h3 id={type}>{type[0].toUpperCase() + type.slice(1)}</h3>
+					<CardLayout>
+						{Object.entries(items).map(([item, { value, description, type }]) => {
+							const name = `\$${category}-${type}-${item}`;
+							return (
+								<Card>
+									<p>
+										<code>{name}</code><br>
+										<strong>Value:</strong> {` ${value / 16}rem (${value}px)`}<br>
+										<strong>Description:</strong> {description}<br>
+										<strong>Type:</strong> {type}
+									</p>
+								</Card>
+							)
+						})}
+					</CardLayout>
+				</>
+			})}
+		</>
+	})}
+
+</SidebarLayout>

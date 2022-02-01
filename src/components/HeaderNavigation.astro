@@ -1,18 +1,15 @@
 ---
-import { removeLeadingSlash, removeTrailingSlash } from '../util.ts';
+import { removeTrailingSlash } from '../util.ts';
 
 const mainNavLinks = [
-	{ slug: 'foundations', label: 'Foundations' },
-	{ slug: 'content', label: 'Content' },
-	{ slug: 'design', label: 'Design' },
-	{ slug: 'components', label: 'Components' },
-	{ slug: 'experiences', label: 'Experiences' },
+	{ path: '/foundations', label: 'Foundations' },
+	{ path: '/content', label: 'Content' },
+	{ path: '/design/design-tokens', label: 'Design' },
+	{ path: '/components', label: 'Components' },
+	{ path: '/experiences', label: 'Experiences' },
 ]
 
-const currentPageMatch =
-	removeLeadingSlash(
-		removeTrailingSlash(Astro.request.url.pathname)
-	);
+const currentPageMatch = removeTrailingSlash(Astro.request.url.pathname);
 ---
 <header>
 	<h1>Fabric</h1>
@@ -21,9 +18,9 @@ const currentPageMatch =
 			{mainNavLinks.map(link => (
 				<li>
 					<a
-						href={link.slug}
+						href={link.path}
 						aria-current={`${
-							currentPageMatch === link.slug ? 'page' : 'false'
+							currentPageMatch === link.path ? 'page' : 'false'
 						}`}
 					>
 						{link.label}
@@ -35,15 +32,17 @@ const currentPageMatch =
 </header>
 
 <style lang="scss">
+	@use '../styles/tokens';
+
 	header {
 		grid-area: header;
 
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: tokens.$size-spacing-md;
 
-		padding-inline: 1rem;
+		padding-inline: tokens.$size-spacing-md;
 	}
 
 	h1 {
@@ -58,7 +57,7 @@ const currentPageMatch =
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: tokens.$size-spacing-md;
 
 		padding: 0;
 		margin: 0;
@@ -70,7 +69,7 @@ const currentPageMatch =
 		display: flex;
 		align-items: center;
 
-		padding: 1rem;
+		padding: tokens.$size-spacing-md;
 
 		text-decoration: none;
 	}
@@ -85,7 +84,7 @@ const currentPageMatch =
 		&::before {
 			content: '';
 			position: absolute;
-			inset: 0 1rem auto;
+			inset: 0 tokens.$size-spacing-md auto;
 
 			block-size: .5rem;
 			
