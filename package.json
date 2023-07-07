@@ -16,7 +16,7 @@
     "postcss": "^8.4.5",
     "sass": "^1.48.0",
     "style-dictionary": "^3.1.1",
-    "stylelint": "^14.2.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^24.0.0",
     "token-transformer": "^0.0.17"
   }
