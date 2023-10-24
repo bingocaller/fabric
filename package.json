@@ -13,7 +13,7 @@
     "@babel/core": "^7.16.7",
     "astro": "^0.22.11",
     "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.31",
     "sass": "^1.48.0",
     "style-dictionary": "^3.1.1",
     "stylelint": "^15.10.1",
